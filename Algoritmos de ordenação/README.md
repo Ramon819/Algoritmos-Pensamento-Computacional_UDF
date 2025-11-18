@@ -1,5 +1,4 @@
-Comparação de Algoritmos de Ordenação (Merge Sort, Heap Sort e Quick Sort)
-📌 Descrição do Problema
+📌Comparação de Algoritmos de Ordenação (Merge Sort, Heap Sort e Quick Sort)
 
 O objetivo deste projeto é comparar o desempenho de três algoritmos avançados de ordenação sobre vetores de inteiros:
 
@@ -29,6 +28,7 @@ N = 10.000
 
 Além disso, também é realizada a ordenação de um vetor fixo (RGM) para validação manual.
 
+
 🧠 Métodos Implementados e Justificativa
 
 Foram selecionados três algoritmos representativos de diferentes abordagens dentro dos métodos baseados em comparação:
@@ -42,6 +42,7 @@ Complexidade garantida: O(n log n)
 Estável
 
 Excelente desempenho mesmo no pior caso
+
 ➡️ Escolhido por representar o comportamento mais previsível entre os algoritmos eficientes.
 
 2. Heap Sort
@@ -51,6 +52,7 @@ Utiliza uma estrutura de Max Heap
 Complexidade garantida: O(n log n)
 
 Ordenação in-place (baixo uso de memória)
+
 ➡️ Incluído para comparar desempenho eficiente com uso mínimo de memória auxiliar.
 
 3. Quick Sort
@@ -60,18 +62,8 @@ Estratégia Dividir-para-Conquistar baseada em partição
 Complexidade média O(n log n), pior caso O(n²)
 
 Muito rápido na prática para vetores aleatórios
+
 ➡️ Escolhido por ser o algoritmo eficiente mais rápido em cenários reais.
-
-🛠️ Como Compilar e Executar
-
-Certifique-se de ter o GCC instalado. Para compilar com otimização leve e padrão C11:
-
-gcc -O1 -std=c11 ordena.c -o ordena
-
-
-Para executar:
-
-./ordena
 
 📏 Política de Contagem de Passos
 
@@ -126,7 +118,9 @@ Resultado em milissegundos
 Cada teste foi executado 5 vezes → valores representam médias
 
 📊 Resultados (Médias de 5 Execuções)
+
 🔹 Teste de Sanidade (RGM: 46320954)
+
 | Algoritmo   | steps_cmp | steps_swap | Tempo (ms) |
 |-------------|-----------|------------|------------|
 | Merge Sort  |    12     |     20     |   0.001    |
@@ -134,6 +128,7 @@ Cada teste foi executado 5 vezes → valores representam médias
 | Quick Sort  |    10     |      5     |   0.001    |
 
 🔹 Tabela Geral – Tempos (ms)
+
 | Algoritmo   | N=100 | N=1000 | N=10000 |
 |-------------|--------|--------|---------|
 | Merge Sort  | 0.004  | 0.050  | 0.700   |
@@ -141,6 +136,7 @@ Cada teste foi executado 5 vezes → valores representam médias
 | Quick Sort  | 0.002  | 0.030  | 0.500   |
 
 🔹 CSV Completo (Comparações, Trocas, Tempos)
+
 N,stepsCmp_Merge,stepsSwap_Merge,tempoMerge_ms,stepsCmp_Heap,stepsSwap_Heap,tempoHeap_ms,stepsCmp_Quick,stepsSwap_Quick,tempoQuick_ms
 100,540,670,0.004,580,610,0.003,650,180,0.002
 1000,7600,8700,0.050,8900,9200,0.040,8200,1500,0.030
@@ -181,6 +177,7 @@ Poucas trocas graças ao particionamento eficiente
 Pior caso não ocorreu (o vetor era aleatório)
 
 🏆 Conclusão: Melhor Método
+
 ⭐ Quick Sort é o vencedor geral
 
 Melhor tempo real
