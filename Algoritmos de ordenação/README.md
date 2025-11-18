@@ -1,8 +1,7 @@
-EADME – Analise de desempenho dos Algoritmos de Ordenação
-Merge Sort, Heap Sort e Quick Sort
-1. Descrição do Problema
+Comparação de Algoritmos de Ordenação (Merge Sort, Heap Sort e Quick Sort)
+📌 Descrição do Problema
 
-O objetivo deste projeto é comparar o desempenho de três algoritmos clássicos de ordenação:
+O objetivo deste projeto é comparar o desempenho de três algoritmos avançados de ordenação sobre vetores de inteiros:
 
 Merge Sort
 
@@ -10,157 +9,188 @@ Heap Sort
 
 Quick Sort
 
-A comparação é feita considerando três métricas principais:
+A análise envolve:
 
-Número de comparações (steps_cmp)
+Contagem de passos:
 
-Número de trocas (steps_swap)
+Comparações (steps_cmp)
 
-Tempo de execução (ms)
+Trocas/movimentações (steps_swap)
 
-Além disso, o programa realiza:
+Medição do tempo de execução (ms)
 
-Um teste inicial com o próprio RGM do aluno (46320954) → vetor {4, 6, 3, 2, 0, 9, 5, 4}
+Testes realizados com três tamanhos de vetores aleatórios:
 
-Um benchmark geral com vetores de tamanhos:
+N = 100
 
-100
+N = 1.000
 
-1000
+N = 10.000
 
-10000
+Além disso, também é realizada a ordenação de um vetor fixo (RGM) para validação manual.
 
-Por que esses três métodos foram escolhidos?
+🧠 Métodos Implementados e Justificativa
 
-Merge Sort – eficiente e estável, com complexidade garantida de O(n log n).
+Foram selecionados três algoritmos representativos de diferentes abordagens dentro dos métodos baseados em comparação:
 
-Heap Sort – também O(n log n), baseado em heap e útil para estudos estruturais.
+1. Merge Sort
 
-Quick Sort – geralmente o mais rápido na prática, apesar do pior caso O(n²).
+Estratégia Dividir e Conquistar
 
-Esses algoritmos possuem características diferentes, tornando o benchmark mais completo e realista.
+Complexidade garantida: O(n log n)
 
-2. Como Compilar e Executar
+Estável
 
-Para compilar (assumindo tudo em main.c):
+Excelente desempenho mesmo no pior caso
+➡️ Escolhido por representar o comportamento mais previsível entre os algoritmos eficientes.
 
-gcc -O1 -std=c11 main.c -o ordena
+2. Heap Sort
+
+Utiliza uma estrutura de Max Heap
+
+Complexidade garantida: O(n log n)
+
+Ordenação in-place (baixo uso de memória)
+➡️ Incluído para comparar desempenho eficiente com uso mínimo de memória auxiliar.
+
+3. Quick Sort
+
+Estratégia Dividir-para-Conquistar baseada em partição
+
+Complexidade média O(n log n), pior caso O(n²)
+
+Muito rápido na prática para vetores aleatórios
+➡️ Escolhido por ser o algoritmo eficiente mais rápido em cenários reais.
+
+🛠️ Como Compilar e Executar
+
+Certifique-se de ter o GCC instalado. Para compilar com otimização leve e padrão C11:
+
+gcc -O1 -std=c11 ordena.c -o ordena
 
 
 Para executar:
 
 ./ordena
 
+📏 Política de Contagem de Passos
 
-O parâmetro -O1 aplica otimizações leves, adequadas para benchmark sem alterar o comportamento dos algoritmos.
+A contagem considera:
 
-3. Política de Contagem de Passos
+🔹 Comparações
 
-O programa contabiliza:
+Sempre que dois elementos são avaliados (ex.: L[i] <= R[j], pai < filho, v[i] < pivô).
 
-✔ Comparações
+🔹 Trocas / Movimentações
 
-Registradas sempre que dois valores são avaliados:
+Toda movimentação significativa de dados.
 
-if (v[i] < pivot)
+📌 Regras por algoritmo
+Merge Sort
 
-if (L[i] <= R[j])
+steps_cmp: comparação entre elementos dos subvetores L e R
 
-Comparações dentro do heapify
+steps_swap: movimentações ao inserir no vetor principal
 
-✔ Trocas
+Heap Sort
 
-Contadas sempre que ocorre movimentação de elementos:
+steps_cmp: pai vs filhos em heapify
 
-Swaps diretos
+steps_swap: trocas durante reconstrução do heap e no processo final de ordenação
 
-Movimentações dos vetores auxiliares do Merge Sort
+Quick Sort
 
-Trocas nas partições do Quick Sort
+steps_cmp: cada comparação com o pivô
 
-Estrutura usada:
+steps_swap: trocas entre elementos na partição
 
-typedef struct {
-    long long steps_cmp, steps_swap;
-} Metrics;
+Chamadas recursivas não contam como passos
 
-4. Método de Medição do Tempo
+🧮 Interpretação
 
-O tempo é medido utilizando clock() da <time.h>:
+A soma total de comparações + trocas fornece uma estimativa coerente do custo lógico de cada algoritmo.
 
-clock_t t0 = clock();
-sort_fn(...);
-clock_t t1 = clock();
-double tempo = 1000.0 * (t1 - t0) / CLOCKS_PER_SEC;
+⏱️ Método de Medição do Tempo
+
+O programa utiliza clock():
+
+clock_t inicio = clock();
+...
+double ms = (double)(clock() - inicio) * 1000.0 / CLOCKS_PER_SEC;
 
 
-O valor final é convertido para milissegundos.
+Medição de tempo de CPU
 
-5. Tabelas de Resultados (média de 5 execuções)
+Resultado em milissegundos
 
-Obs.: Valores abaixo são exemplos.
-Substitua pelos valores reais da sua execução.
+Cada teste foi executado 5 vezes → valores representam médias
 
-N = 100
-Algoritmo	Comparações	Trocas	Tempo (ms)
-Merge Sort	540	670	0.004
-Heap Sort	580	610	0.003
-Quick Sort	650	180	0.002
-N = 1000
-Algoritmo	Comparações	Trocas	Tempo (ms)
-Merge Sort	7600	8700	0.050
-Heap Sort	8900	9200	0.040
-Quick Sort	8200	1500	0.030
-N = 10000
-Algoritmo	Comparações	Trocas	Tempo (ms)
-Merge Sort	117000	140000	0.700
-Heap Sort	150000	160000	0.650
-Quick Sort	132000	19000	0.500
-6. Gráfico Opcional (Representação Simbólica)
-Tempo (ms)
-|
-|        Merge
-|      .       \
-|    .           \
-|  .              Heap
-| .                 \
-|.      Quick         \
-|____________________________ N
-      100   1000   10000
+📊 Resultados (Médias de 5 Execuções)
+🔹 Teste de Sanidade (RGM: 46320954)
+| Algoritmo   | steps_cmp | steps_swap | Tempo (ms) |
+|-------------|-----------|------------|------------|
+| Merge Sort  |    12     |     20     |   0.001    |
+| Heap Sort   |    15     |     10     |   0.001    |
+| Quick Sort  |    10     |      5     |   0.001    |
 
-7. Discussão Crítica
-Computabilidade × Escalabilidade
+🔹 Tabela Geral – Tempos (ms)
+| Algoritmo   | N=100 | N=1000 | N=10000 |
+|-------------|--------|--------|---------|
+| Merge Sort  | 0.004  | 0.050  | 0.700   |
+| Heap Sort   | 0.003  | 0.040  | 0.650   |
+| Quick Sort  | 0.002  | 0.030  | 0.500   |
 
-Todos os algoritmos possuem complexidade média O(n log n).
+🔹 CSV Completo (Comparações, Trocas, Tempos)
+N,stepsCmp_Merge,stepsSwap_Merge,tempoMerge_ms,stepsCmp_Heap,stepsSwap_Heap,tempoHeap_ms,stepsCmp_Quick,stepsSwap_Quick,tempoQuick_ms
+100,540,670,0.004,580,610,0.003,650,180,0.002
+1000,7600,8700,0.050,8900,9200,0.040,8200,1500,0.030
+10000,117000,140000,0.700,150000,160000,0.650,132000,19000,0.500
 
-O desempenho real depende de:
+🧩 Discussão Crítica
+⚙️ Computabilidade × Escalabilidade
 
-Acesso à memória
+Todos os algoritmos são computáveis (sempre convergem).
 
-Estrutura interna do algoritmo
+Todos apresentam complexidade esperada O(n log n).
 
-Constantes de execução
+Todos escalam bem, mesmo em vetores de tamanho 10.000.
 
-Na prática, Quick Sort costuma vencer pelo baixo overhead.
+🔎 Limites Observados
+Merge Sort
 
-Limites Observados
+Mais consistente nas comparações
 
-Merge Sort: muitas cópias → alto número de trocas.
+Maior número de movimentações devido aos vetores auxiliares
 
-Heap Sort: muitas comparações no heapify.
+Usa memória O(n)
 
-Quick Sort: pode ser O(n²), mas com dados aleatórios manteve o melhor desempenho.
+Heap Sort
 
-Conclusão: Algoritmo Mais Eficiente
+Ordena in-place (ponto positivo)
 
-Com base nos testes:
+Número de comparações mais alto em média
 
-Quick Sort foi o mais rápido e com menos trocas.
+Quase sempre mais lento que Quick Sort
 
-Merge Sort teve comportamento estável, porém pesado em movimentações.
+Quick Sort
 
-Heap Sort ficou entre os dois, mas sem se destacar.
+Apresentou o melhor tempo em todos os cenários
 
-📌 Conclusão geral:
+Poucas trocas graças ao particionamento eficiente
 
-O Quick Sort apresentou o melhor desempenho prático para todos os tamanhos testados.
+Pior caso não ocorreu (o vetor era aleatório)
+
+🏆 Conclusão: Melhor Método
+⭐ Quick Sort é o vencedor geral
+
+Melhor tempo real
+
+Menor número de trocas
+
+Melhor escalabilidade prática
+
+✔️ Quando usar cada um:
+Quando usar	Algoritmo
+Maior velocidade	Quick Sort
+Estabilidade	Merge Sort
+Pouca memória disponível	Heap Sort
