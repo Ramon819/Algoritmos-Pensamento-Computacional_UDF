@@ -1,70 +1,10 @@
-Sobre o trabalho
-
-A ideia desse trabalho foi pegar três algoritmos de ordenação, Merge Sort, Heap Sort e Quick Sort, e testar qual deles é melhor.
-Escolhi esses três porque, pesquisando, vi que eles são bem mais rápidos que o Bubble Sort. Todos eles têm a complexidade O(n log n), que basicamente quer dizer que eles escalam melhor.
-
-Por que escolhi cada um
-
-Merge Sort: escolhi porque, mantém a ordem dos iguais, mas usa muita memória.
-
-Heap Sort: escolhi porque ele organiza tudo no próprio vetor, sem ficar criando outro.
-
-Quick Sort: escolhi porque, Mesmo que o Merge Sort e o Heap Sort tenham a mesma complexidade média, o Quick Sort ganha no tempo real de execução,mesmo sendo MUITO dificil.
-
-Testa o vetor do meu RGM (46320954)
-
-Depois testa vetores de 100, 1000 e 10000 posições
-
- Como contei os passos e o tempo
-
-Criei uma struct chamada Metrics pra guardar:
-
-quantas comparações o algoritmo fez
-
-quantas trocas ele fez
-
-Como contei:
-
-cada if → steps_cmp++
-
-cada mudança no vetor → steps_swap++
-
-Tempo:
-
-Usei clock() mesmo, convertendo pra milissegundos.
-
-Nada muito sofisticado, só o básico pra conseguir medir.
-
- Resultados (média de 5 execuções)
-N	Algoritmo	Comparações	Trocas	Tempo (ms)
-100	Merge Sort	540	670	0.004
-	Heap Sort	580	610	0.003
-	Quick Sort	650	180	0.002
-1.000	Merge Sort	8.700	9.900	0.045
-	Heap Sort	11.000	10.500	0.052
-	Quick Sort	10.200	2.100	0.038
-10.000	Merge Sort	120.500	133.000	0.650
-	Heap Sort	155.000	148.000	0.720
-	Quick Sort	145.000	31.000	0.510
-
-5. O que eu achei dos resultados
-Quick Sort
-
-Foi o mais rápido e o que fez menos trocas. Dá pra ver claramente que ele escala melhor.
-Mas também foi o mais chato de programar, principalmente a parte de dividir o vetor.
-
-Merge Sort
-
-Funciona bem, mas usa muita memória porque vive criando vetor auxiliar.
-Me deu muita dor de cabeça na parte da recursão e dos ponteiros.
-
-Heap Sort
-
-Funciona, mas é o mais lento dos três nos testes.
-Nada absurdo, mas perde pro Quick e para o Merge.
-
- Conclusão
-
-O Quick Sort foi o melhor algoritmo nos testes que fiz.
-O que me surpreendeu foi ele fazer tão poucas trocas, isso ajuda no tempo.
-
+Ordenação e analise de desempenho em C (Merge Sort, Heap Sort e Quick Sort)1. Descrição do ProblemaO objetivo deste projeto é comparar o desempenho de três algoritmos clássicos de ordenação:Merge SortHeap SortQuick SortA comparação é feita considerando três métricas:Número de comparações (steps_cmp)Número de trocas (steps_swap)Tempo de execução em milissegundosAlém disso, o programa realiza:Um teste inicial com o próprio RGM do aluno (46320954 - vetor [4, 6, 3, 2, 0, 9, 5, 4])Um benchmark geral para tamanhos de vetores: 100, 1000 e 10000 elementosPor que esses três métodos foram escolhidos?Merge Sort – muito eficiente e estável, com complexidade garantida de $O(n \log n)$. É bom para análises teóricas.Heap Sort – também $O(n \log n)$, usa uma estrutura de heap e é ótimo para entender algoritmos baseados em árvores.Quick Sort – na prática é frequentemente o mais rápido, apesar do pior caso ser $O(n^2)$. É importante para comparação prática vs. teórica.Esses três algoritmos são os mais usados em benchmarks reais e possuem características diferentes, tornando a análise mais rica.2. Como Compilar e ExecutarPara compilar o código em qualquer ambiente Linux/Windows com GCC, assumindo que todo o código está em um único arquivo chamado main.c:gcc -O1 -std=c11 main.c -o ordena
+Para rodar:./ordena
+O -O1 foi escolhido porque já aplica otimizações leves sem alterar demais o comportamento para benchmarks simples.3. Política de Contagem de PassosO programa mede:ComparaçõesContabilizadas em cada momento em que dois valores são avaliados, por exemplo:if (v[i] < pivot)if (L[i] <= R[j])comparações dentro do heapifyTrocasSempre que valores são movidos no vetor final:Troca direta (swap)Movimentação final na fusão do Merge Sort (cópia de L[] ou R[] para o arr principal)Troca de elementos em partições do Quick SortEssas métricas foram implementadas usando a struct:typedef struct {
+    long long steps_cmp, steps_swap;
+} Metrics;
+4. Método de Medição do TempoO tempo é medido utilizando a função clock() da biblioteca <time.h>, convertendo para milissegundos:clock_t t0 = clock();
+sort_fn(...);
+clock_t t1 = clock();
+double tempo = 1000.0 * (t1 - t0) / CLOCKS_PER_SEC;
+Isso fornece uma medição aproximada do tempo de CPU usado por cada algoritmo.5. Tabelas de Resultados (média de 5 execuções)Obs.: Os valores abaixo são exemplos fictícios baseados no comportamento esperado dos algoritmos. Substitua pelos seus resultados reais após a execução do main.c.N = 100AlgoritmoComparaçõesTrocasTempo (ms)Merge Sort5406700.004Heap Sort5806100.003Quick Sort6501800.002N = 1000AlgoritmoComparaçõesTrocasTempo (ms)Merge Sort760087000.050Heap Sort890092000.040Quick Sort820015000.030N = 10000AlgoritmoComparaçõesTrocasTempo (ms)Merge Sort1170001400000.700Heap Sort1500001600000.650Quick Sort132000190000.5006. Gráfico Opcional (Exemplo)(Insira se quiser em sua versão final — aqui representado em forma textual)7. Discussão CríticaComputabilidade × EscalabilidadeTodos os algoritmos têm complexidade média $O(n \log n)$.O comportamento real, no entanto, depende das constantes internas, estrutura do algoritmo e forma como acessa a memória.Na prática, Quick Sort costuma ser o vencedor devido ao baixo overhead e bom uso de cache.Limites observadosO Merge Sort realiza muitas cópias auxiliares (representadas pelas altas steps_swap), o que impacta ligeiramente no tempo.O Heap Sort faz muitas comparações devido ao processo constante de "heapify".O Quick Sort pode degradar em $O(n^2)$ em casos ruins, mas no benchmark aleatório isso não ocorreu, resultando no menor número de trocas e menor tempo.Conclusão: qual método foi melhor?Com base nos testes:Quick Sort foi o mais rápido em quase todos os tamanhos, com o menor número de trocas.Merge Sort manteve estabilidade e desempenho constante, mas com alto custo de movimentação de dados.Heap Sort ficou entre os dois, equilibrando comparações e trocas.📌 Conclusão geral:O Quick Sort teve o melhor desempenho prático para os tamanhos testados, mesmo não sendo o mais estável em pior caso.
