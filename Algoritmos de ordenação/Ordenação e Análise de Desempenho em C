@@ -204,6 +204,24 @@ int main() {
 
         printf("\nN = %zu:\n", n);
 
+     copy_array(test_arr, random_arr, n);
+        time_merge = run_sort(merge_sort_wrapper, test_arr, n, &m_merge);
+        printf("Merge Sort: Passos = %lld, Trocas = %lld, Tempo = %.3f ms\n",
+               m_merge.steps_cmp, m_merge.steps_swap, time_merge);
+
+        copy_array(test_arr, random_arr, n);
+        time_heap = run_sort(heap_sort, test_arr, n, &m_heap);
+        printf("Heap Sort : Passos = %lld, Trocas = %lld, Tempo = %.3f ms\n",
+               m_heap.steps_cmp, m_heap.steps_swap, time_heap);
+
+        copy_array(test_arr, random_arr, n);
+        time_quick = run_sort(quick_sort, test_arr, n, &m_quick);
+        printf("Quick Sort: Passos = %lld, Trocas = %lld, Tempo = %.3f ms\n",
+               m_quick.steps_cmp, m_quick.steps_swap, time_quick);
+
+        free(random_arr);
+        free(test_arr);
+
        
     }
 
