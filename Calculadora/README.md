@@ -1,14 +1,14 @@
-🧮 Calculadora Científica em C
+ Calculadora Científica em C
 
 Este projeto é uma calculadora científica interativa desenvolvida em linguagem C, capaz de realizar 20 operações matemáticas diferentes, incluindo operações básicas e funções científicas.
 
 O programa foi criado como parte dos meus estudos durante o  1º semestre de Ciência da Computação, com o objetivo de praticar estruturas condicionais, laços de repetição, modularização e tratamento de erros.
 
-⚙️ Funcionalidades
+ Funcionalidades
 
 A calculadora inclui as seguintes operações:
 
-🔢 Operações Básicas
+ Operações Básicas
 
 Adição
 
@@ -18,7 +18,7 @@ Multiplicação
 
 Divisão
 
-🧠 Funções Científicas
+ Funções Científicas
 
 Seno
 
@@ -52,7 +52,7 @@ Resto da divisão (mod)
 
 Conversão Graus ↔ Radianos
 
-🧩 Estrutura do Código
+ Estrutura do Código
 
 O código foi desenvolvido com foco em aprendizado e boas práticas de programação em C:
 
