@@ -1,6 +1,4 @@
-.
-
-📘 README – Calculadora Científica Completa em C
+📘  Calculadora Científica Completa em C
 
 Este projeto implementa uma calculadora científica modular em linguagem C, contendo operações básicas, avançadas, funções matemáticas, operações em cadeia, manipulação de matrizes, conversões e um sistema completo de histórico persistente em CSV.
 
@@ -212,17 +210,15 @@ CSV seguro e padronizado
 31 Salvar CSV
 32 Carregar CSV
 0  Sair
-===========================================================
 
 💾 7. Salvando e Carregando Histórico
 Salvar histórico:
-31
+
 Nome do arquivo: historico.csv
 
 Carregar histórico:
 32
 Nome do arquivo: historico.csv
-
 
 IDs são preservados automaticamente.
 
