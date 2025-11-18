@@ -1,67 +1,27 @@
- Calculadora Científica em C
+Calculadora Científica em C
+Uma calculadora científica modular desenvolvida em linguagem C, com suporte a operações matemáticas básicas, avançadas, manipulação de matrizes, histórico persistente em CSV e interface de menu interativo via terminal.
 
-Este projeto é uma calculadora científica interativa desenvolvida em linguagem C, capaz de realizar 20 operações matemáticas diferentes, incluindo operações básicas e funções científicas.
-
-O programa foi criado como parte dos meus estudos durante o  1º semestre de Ciência da Computação, com o objetivo de praticar estruturas condicionais, laços de repetição, modularização e tratamento de erros.
-
- Funcionalidades
-
-A calculadora inclui as seguintes operações:
-
- Operações Básicas
-
-Adição
-
-Subtração
-
-Multiplicação
-
-Divisão
-
- Funções Científicas
-
-Seno
-
-Cosseno
-
-Tangente
-
-Raiz Quadrada
-
-Potenciação
-
-Logaritmo Natural (ln)
-
-Logaritmo Base 10
-
+Operações Básicas
+Adição, subtração, multiplicação, divisão e resto da divisão (módulo)
+Operações em cadeia (vários números de uma vez)
+Funções Avançadas
+Potenciação e radiciação
+Logaritmos (natural e base 10)
 Porcentagem
+Valor absoluto, fatorial, inverso (1/x)
+Arredondamento, piso (floor) e teto (ceil)
+Conversão entre graus e radianos
+Estatísticas (implementadas como funções puras)
+Média, mediana, desvio padrão
+Máximo e mínimo
+Matrizes
+Soma e multiplicação de:
+Matrizes 2×2
+Matrizes 3×3
+Exemplo de uso:
+=============== CALCULADORA CIENTÍFICA (MOD) ===============
 
-Valor Absoluto
-
-Fatorial
-
-Inverso (1/x)
-
-Arredondar (round)
-
-Piso (floor)
-
-Teto (ceil)
-
-Resto da divisão (mod)
-
-Conversão Graus ↔ Radianos
-
- Estrutura do Código
-
-O código foi desenvolvido com foco em aprendizado e boas práticas de programação em C:
-
-Uso de switch-case para seleção das operações;
-
-Tratamento de erros, como divisão por zero e entradas inválidas;
-
-Função separada para o cálculo de fatorial;
-
-Laço do-while para repetição contínua sem reiniciar o programa;
-
-Definição de M_PI para cálculos trigonométricos precisos.
+Adição (+)
+Subtração (-)
+Multiplicação (*)
+Divisão (/) ... Escolha uma opção: 1 Quantos números você quer usar na operação? 3 Digite o 1º número: 2 Digite o 2º número: 5 Digite o 3º número: 8 Resultado final: 15 Deseja realizar outro cálculo? (1 - Sim / 0 - Não): 1
