@@ -135,13 +135,6 @@ Cada teste foi executado 5 vezes → valores representam médias
 | Heap Sort   | 0.003  | 0.040  | 0.650   |
 | Quick Sort  | 0.002  | 0.030  | 0.500   |
 
-🔹 CSV Completo (Comparações, Trocas, Tempos)
-
-N,stepsCmp_Merge,stepsSwap_Merge,tempoMerge_ms,stepsCmp_Heap,stepsSwap_Heap,tempoHeap_ms,stepsCmp_Quick,stepsSwap_Quick,tempoQuick_ms
-100,540,670,0.004,580,610,0.003,650,180,0.002
-1000,7600,8700,0.050,8900,9200,0.040,8200,1500,0.030
-10000,117000,140000,0.700,150000,160000,0.650,132000,19000,0.500
-
 🧩 Discussão Crítica
 ⚙️ Computabilidade × Escalabilidade
 
@@ -188,6 +181,6 @@ Melhor escalabilidade prática
 
 ✔️ Quando usar cada um:
 Quando usar	Algoritmo
-Maior velocidade	Quick Sort
-Estabilidade	Merge Sort
-Pouca memória disponível	Heap Sort
+Maior velocidade	Quick Sort,
+Estabilidade	Merge Sort,
+Pouca memória disponível	Heap Sort.
