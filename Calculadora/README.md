@@ -47,8 +47,3 @@ Deseja realizar outro cálculo? (1 - Sim / 0 - Não): 1
 
 --------------------------------------------------------------------------------------------------------------
 
-# Cooperadores: 
-    Ramon Martins Silva	
-		Flávio Vinicius Vieira Trajano
-		Ana Karla Alves da Cruz
-		Brunno Pereira
