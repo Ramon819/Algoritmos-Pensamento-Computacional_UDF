@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int anoNascimento, idade;
+    int anoAtual = 2025;
+
+    printf("Em que ano você nasceu? ");
+    scanf("%d", &anoNascimento);
+
+    idade = anoAtual - anoNascimento;
+
+    printf("Você tem %d anos.\n", idade);
+
+    if (idade >= 18)
+        printf("Você é maior de idade.\n");
+    else if (idade >= 15)
+        printf("Você tem entre 15 e 18 anos.\n");
+    else
+        printf("Você tem menos de 15 anos.\n");
+
+    system("pause");
+    return 0;
+}
