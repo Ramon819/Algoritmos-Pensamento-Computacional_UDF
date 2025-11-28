@@ -1,7 +1,6 @@
 # 🔀 Exercícios: Estruturas de Decisão em C
 
 > **Lógica de Programação e Algoritmos**
-> **Universidade do Distrito Federal (UDF)**
 
 Este repositório contém a resolução de exercícios focados em **Controle de Fluxo**. Aqui, os programas deixam de ser lineares e passam a tomar decisões baseadas em condições lógicas, utilizando estruturas como `if`, `else if`, `else` e `switch`.
 
