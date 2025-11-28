@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    float alturaA, alturaB;
+
+    printf("Digite a altura de A: ");
+    scanf("%f", &alturaA);
+
+    printf("Digite a altura de B: ");
+    scanf("%f", &alturaB);
+
+    if (alturaA > alturaB)
+        printf("A é mais alto que B.\n");
+    else if (alturaB > alturaA)
+        printf("B é mais alto que A.\n");
+    else
+        printf("A e B têm a mesma altura.\n");
+
+    system("pause");
+    return 0;
+}
