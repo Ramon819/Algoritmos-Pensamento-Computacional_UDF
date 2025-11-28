@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main() {
+    int numero;
+
+    printf("Digite um número: ");
+    scanf("%d", &numero);
+
+    if (numero % 2 == 0) {
+        printf("O número é par.\n");
+        printf("A raiz quadrada é: %.2f\n", sqrt(numero));
+    } else {
+        printf("O número é ímpar.\n");
+        printf("O número ao quadrado é: %d\n", numero * numero);
+    }
+
+    system("pause");
+    return 0;
+}
