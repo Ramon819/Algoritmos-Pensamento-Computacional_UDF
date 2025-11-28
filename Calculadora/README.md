@@ -1,49 +1,69 @@
-# Calculadora Científica em C
+# 🧮 Calculadora Científica Modular
 
-Uma calculadora científica modular desenvolvida em linguagem C, com suporte a operações matemáticas básicas, avançadas, manipulação de matrizes, histórico persistente em CSV e interface de menu interativo via terminal.
+> **Linguagem C - Algoritmos e Estruturas de Dados**
+> **Universidade do Distrito Federal (UDF)**
 
---------------------------------------------------------------------------------------------------------------
-# Operações Básicas
+Este repositório contém um projeto avançado de uma **Calculadora Científica**, desenvolvida com foco em modularidade, segurança de dados e persistência. O sistema vai além das operações básicas, implementando histórico de cálculos, operações matriciais e tratamento robusto de entrada de dados.
 
-- Adição, subtração, multiplicação, divisão e resto da divisão (módulo)
-- Operações em **cadeia** (vários números de uma vez)
+---
 
-# Funções Avançadas
+## 🛠️ Tecnologias e Conceitos
 
-- Potenciação e radiciação  
-- Logaritmos (natural e base 10)
-- Porcentagem
-- Valor absoluto, fatorial, inverso (1/x)
-- Arredondamento, piso (`floor`) e teto (`ceil`)
-- Conversão entre graus e radianos
+![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
 
-# Estatísticas (implementadas como funções puras)
+Neste projeto, foram aplicados conceitos avançados da linguagem C:
 
-- Média, mediana, desvio padrão
-- Máximo e mínimo
+* **Estruturas de Dados (`struct`):** Organização do histórico e matrizes.
+* **Alocação Dinâmica (`malloc`/`free`):** Gerenciamento eficiente de memória para vetores.
+* **Persistência de Dados (File I/O):** Leitura e escrita de arquivos **CSV**.
+* **Ponteiros:** Manipulação direta de memória e passagem por referência.
+* **Biblioteca Matemática (`<math.h>`):** Uso de funções trigonométricas, logarítmicas e exponenciais.
+* **Buffer Circular:** Implementação otimizada para o histórico de operações.
 
-# Matrizes
+---
 
-- Soma e multiplicação de:
-- Matrizes 2×2
-- Matrizes 3×3
-------------------------------------------------------------------------------------------------------------
+## 📂 Funcionalidades do Sistema
 
-# Exemplo de uso:
+O programa opera através de um menu interativo com as seguintes capacidades:
 
-=============== CALCULADORA CIENTÍFICA (MOD) ===============
- 1. Adição (+)
- 2. Subtração (-)
- 3. Multiplicação (*)
- 4. Divisão (/)
- ...
-Escolha uma opção: 1
-Quantos números você quer usar na operação? 3
-Digite o 1º número: 2
-Digite o 2º número: 5
-Digite o 3º número: 8
-Resultado final: 15
-Deseja realizar outro cálculo? (1 - Sim / 0 - Não): 1
+| Categoria | Funcionalidades |
+| :--- | :--- |
+| **Operações em Cadeia** | Adição, subtração, multiplicação e divisão acumulativa com múltiplos números. |
+| **Científica** | Seno, Cosseno, Tangente (Graus/Radianos), Logaritmos (Base 10 e Natural), Fatorial e Raiz. |
+| **Matrizes** | Soma e Multiplicação de matrizes **2x2** e **3x3**. |
+| **Utilidades** | Arredondamento (Round, Ceil, Floor), Porcentagem e Conversão de Unidades. |
+| **Histórico** | Registro das últimas 100 operações com opção de **Salvar** e **Carregar** em arquivo `.csv`. |
 
---------------------------------------------------------------------------------------------------------------
+---
 
+## 🚀 Como Compilar e Rodar
+
+Como este projeto utiliza a biblioteca matemática avançada, é necessário linkar a biblioteca `-lm` ao compilar em ambientes Linux/Unix.
+
+1.  **Clone o repositório e entre na pasta:**
+    ```bash
+    git clone [https://github.com/SEU-USUARIO/nome-do-repo.git](https://github.com/SEU-USUARIO/nome-do-repo.git)
+    cd nome-do-repo
+    ```
+
+2.  **Compile o código (GCC):**
+    ```bash
+    gcc main.c -o calculadora -lm
+    ```
+    *(A flag `-lm` é essencial para incluir as funções matemáticas)*
+
+3.  **Execute o programa:**
+    * **Windows:** `.\calculadora.exe`
+    * **Linux/Mac:** `./calculadora`
+
+---
+
+## 💾 Exemplo de Persistência (CSV)
+
+O sistema permite exportar o histórico de cálculos. O arquivo gerado (`historico.csv`) segue o padrão:
+
+```csv
+id,tipo,a,b,resultado
+1,soma,10,20,30
+2,sqrt,144,0,12
+3,mat2_mul,0,0,0
