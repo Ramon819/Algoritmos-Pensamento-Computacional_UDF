@@ -1,69 +1,95 @@
-# 📌 Comparação de Algoritmos de Ordenação
+# 📊 Benchmark de Algoritmos de Ordenação em C
 
-> **Análise de Desempenho e Complexidade Algorítmica**
-> **Universidade do Distrito Federal (UDF) - Ciência da Computação**
+> **Algoritmos e Estrutura de Dados**
+> **Análise de Desempenho e Complexidade**
 
-Este projeto tem como objetivo analisar e comparar o desempenho prático de três algoritmos avançados de ordenação (*Sorting Algorithms*): **Merge Sort**, **Heap Sort** e **Quick Sort**.
+Este repositório contém uma implementação prática e comparativa de três dos principais algoritmos de ordenação: **Merge Sort**, **Heap Sort** e **Quick Sort**.
 
-A análise foca em vetores de inteiros com diferentes magnitudes, medindo eficiência através de tempo de execução e contagem de passos lógicos.
+O programa foi desenvolvido para medir métricas de desempenho (tempo, comparações e trocas) em diferentes cenários, incluindo um vetor de teste específico (RGM) e vetores aleatórios de tamanho crescente.
 
 ---
 
-## 🛠️ Tecnologias e Conceitos
+## 🛠️ Tecnologias e Estruturas
 
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
-![Algorithms](https://img.shields.io/badge/algorithms-O(n_log_n)-green?style=for-the-badge)
 
-* **Linguagem:** C
-* **Métricas:** Tempo de CPU (`clock_t`), Comparações e Trocas (*Swaps*).
-* **Escopo:** Vetores aleatórios (N = 100, 1.000, 10.000) e Vetor Fixo (Validação).
+O código utiliza conceitos fundamentais da linguagem C:
+* **Structs:** Uso de `typedef struct Metrics` para encapsular contadores de desempenho.
+* **Ponteiros de Função:** Para criar uma função de benchmark genérica (`run_sort`) que aceita qualquer algoritmo de ordenação como parâmetro.
+* **Alocação Dinâmica:** Uso de `malloc` e `free` para gerenciamento de memória dos vetores.
+* **Medição de Tempo:** Uso da biblioteca `<time.h>` e `clock()` para precisão em milissegundos.
 
 ---
 
 ## 🧠 Algoritmos Implementados
 
-| Algoritmo | Estratégia | Complexidade | Características |
-| :--- | :--- | :--- | :--- |
-| **Merge Sort** | Dividir e Conquistar | $O(n \log n)$ | **Estável**. Excelente desempenho no pior caso, mas consome mais memória (vetores auxiliares). |
-| **Heap Sort** | Max Heap (Árvore) | $O(n \log n)$ | **In-place**. Baixo uso de memória, ordenando na própria estrutura do vetor. |
-| **Quick Sort** | Particionamento | Médio: $O(n \log n)$ | **Rápido**. Geralmente o mais veloz em cenários reais, apesar do pior caso $O(n^2)$. |
+| Algoritmo | Estratégia | Características no Código |
+| :--- | :--- | :--- |
+| **Merge Sort** | Dividir e Conquistar | Utiliza vetores auxiliares (`L` e `R`) e recursão. Estável. |
+| **Heap Sort** | Seleção (Heap) | Implementa `heapify` para organizar a árvore e ordena *in-place*. |
+| **Quick Sort** | Dividir e Conquistar | Escolhe o elemento central como pivô. Rápido e eficiente na média. |
 
 ---
 
-## 📏 Metodologia de Análise
+## 📏 Métricas Analisadas
 
-Para garantir uma comparação justa, foram adotadas as seguintes métricas:
+Para cada execução, o sistema captura:
 
-### 1. Contagem de Passos
-* **`steps_cmp` (Comparações):** Incrementado sempre que dois valores são testados (ex: `L[i] <= R[j]` ou `pai < filho`).
-* **`steps_swap` (Trocas):** Incrementado a cada movimentação significativa de dados na memória.
-* *Nota: Chamadas recursivas não são contabilizadas como passos.*
+1.  **Passos de Comparação (`steps_cmp`):** Quantas vezes o algoritmo precisou verificar se "A > B".
+2.  **Passos de Troca (`steps_swap`):** Quantas vezes posições de memória foram alteradas ou valores copiados.
+3.  **Tempo de Execução:** Tempo de CPU medido em milissegundos (`ms`).
 
-### 2. Medição de Tempo
-Utilizou-se a função `clock()` da biblioteca `time.h` para medir o tempo de CPU em milissegundos:
-```c
-double ms = (double)(clock() - inicio) * 1000.0 / CLOCKS_PER_SEC;
+---
 
-📊 Resultados dos Testes
-  1. Teste de Sanidade (Validação)
-Entrada: Vetor fixo baseado em RGM (46320954).
-Algoritmo,Comparações,Trocas (Swaps),Tempo (ms)
-Merge Sort,12,20,0.001
-Heap Sort,15,10,0.001
-Quick Sort,10,5,0.001
-2. Desempenho em Escala (Tempo em ms)
-Algoritmo,N = 100,N = 1.000,N = 10.000
-Merge Sort,0.004,0.050,0.700
-Heap Sort,0.003,0.040,0.650
-Quick Sort,0.002,0.030,0.500
-🧩 Discussão e Conclusão
-Análise Crítica
-Merge Sort: Mostrou-se o mais consistente nas comparações, porém o alto número de movimentações (devido à cópia para vetores auxiliares) impactou levemente o tempo final.
+## 🧪 Cenários de Teste
 
-Heap Sort: Vantajoso por ser in-place (economia de memória), mas realizou mais comparações médias que os concorrentes.
+O `main` executa duas baterias de testes:
 
-Quick Sort: Graças ao particionamento eficiente, realizou menos trocas e obteve o menor tempo em todos os cenários.
+### 1. Teste de Validação (RGM)
+Utiliza um vetor fixo para validação lógica e teste unitário:
+> **Vetor:** `{4, 6, 3, 2, 0, 9, 5, 4}`
 
-🏆 Veredito
-O Quick Sort foi o vencedor geral nos testes realizados, apresentando a melhor escalabilidade prática.
- Guia de EscolhaCenárioMelhor EscolhaMaior Velocidade🚀 Quick SortEstabilidade (manter ordem relativa)⚖️ Merge SortPouca Memória Disponível💾 Heap Sort
+### 2. Teste de Escalabilidade
+Gera vetores com números aleatórios (`rand() % 1000`) para testar o comportamento assintótico:
+* **N = 100**
+* **N = 1.000**
+* **N = 10.000**
+
+---
+
+## 🚀 Como Compilar e Rodar
+
+Certifique-se de ter um compilador C (como GCC) instalado.
+
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/SEU-USUARIO/nome-do-repo.git](https://github.com/SEU-USUARIO/nome-do-repo.git)
+    ```
+
+2.  **Compile o código:**
+    ```bash
+    gcc main.c -o benchmark
+    ```
+
+3.  **Execute:**
+    * **Windows:** `.\benchmark.exe`
+    * **Linux/Mac:** `./benchmark`
+
+---
+
+## 📄 Exemplo de Saída
+
+Ao rodar o programa, você verá um output similar a este:
+
+```text
+--- Teste com RGM (46320954) ---
+Merge Sort: Passos = 18, Trocas = 24, Tempo = 0.002 ms
+Heap Sort : Passos = 25, Trocas = 18, Tempo = 0.001 ms
+Quick Sort: Passos = 14, Trocas = 8, Tempo = 0.001 ms
+
+--- BENCHMARK GERAL ---
+
+N = 100:
+Merge Sort: ...
+Heap Sort : ...
+Quick Sort: ...
