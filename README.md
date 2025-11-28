@@ -1,72 +1,62 @@
-📘 Algoritmo e Pensamento Computacional
+# 📘 Algoritmo e Pensamento Computacional
 
-Este repositório reúne atividades, exercícios, anotações e projetos desenvolvidos na disciplina Algoritmo e Pensamento Computacional.
-A matéria tem como objetivo introduzir a lógica de programação, o raciocínio estruturado e técnicas fundamentais para resolver problemas através de algoritmos.
+> **Disciplina Fundamental de Ciência da Computação**
 
-🎯 Objetivos da Disciplina
+Este repositório reúne atividades, exercícios, anotações e projetos desenvolvidos na disciplina de **Algoritmo e Pensamento Computacional**.
 
-Entender os princípios da lógica computacional.
+O objetivo central é introduzir a lógica de programação, o raciocínio estruturado e as técnicas fundamentais para a resolução de problemas através da construção de algoritmos eficientes.
 
-Desenvolver a capacidade de decompor problemas em etapas menores.
+---
 
-Construir algoritmos usando estruturas básicas (sequência, decisão e repetição).
+## 🛠️ Tecnologias e Ferramentas
 
-Utilizar fluxogramas, pseudocódigo e linguagens de programação introdutórias.
+![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/VS%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Logic](https://img.shields.io/badge/Lógica-Portugol-green?style=for-the-badge)
+![Flowgorithm](https://img.shields.io/badge/Flowgorithm-Fluxogramas-orange?style=for-the-badge)
 
-Estimular pensamento lógico, abstração e resolução eficiente de problemas.
+Utilizamos um conjunto de ferramentas para transitar do pensamento lógico visual para a codificação:
+* **Linguagens:** C e Portugol (Visualg).
+* **Diagramação:** Flowgorithm e draw.io (Fluxogramas).
+* **IDEs:** VS Code, Dev-C++, Thonny.
 
-🧩 Conteúdos Abordados
+---
 
-Introdução à lógica e algoritmos
+## 🎯 Objetivos de Aprendizagem
 
-Variáveis, tipos de dados e operadores
+A disciplina foca no desenvolvimento de uma base sólida para a programação:
 
-Estruturas condicionais (if/else)
+* ✅ **Lógica Computacional:** Entender os princípios que regem o funcionamento dos softwares.
+* ✅ **Decomposição:** Desenvolver a capacidade de quebrar problemas complexos em etapas menores e gerenciáveis.
+* ✅ **Algoritmos Estruturados:** Construir soluções utilizando sequências, decisões (`if/else`) e repetições (`loops`).
+* ✅ **Abstração:** Estimular o pensamento lógico e a resolução eficiente de problemas reais.
 
-Estruturas de repetição (for, while)
+---
 
-Vetores e matrizes
+## 🧩 Conteúdo Programático
 
-Funções e modularização
+Os tópicos abordados e exercitados neste repositório incluem:
 
-Fluxogramas e pseudocódigo
+| Tópico | Descrição |
+| :--- | :--- |
+| **Introdução à Lógica** | Conceitos iniciais de algoritmos e computação. |
+| **Fundamentos** | Variáveis, tipos de dados e operadores matemáticos/lógicos. |
+| **Estruturas de Controle** | Condicionais (`if/else`, `switch`) e Laços de Repetição (`for`, `while`). |
+| **Estruturas de Dados** | Vetores (Arrays unidimensionais) e Matrizes (Arrays multidimensionais). |
+| **Modularização** | Criação de Funções e procedimentos para organização do código. |
+| **Representação Visual** | Criação de Fluxogramas e escrita de Pseudocódigo. |
 
-Análise e decomposição de problemas
+---
 
-Introdução a linguagem C
+## 🛠️ Metodologia
 
-💻 Tecnologias e Ferramentas
+As atividades são desenvolvidas com base em:
+1.  **Problemas Práticos:** Resolução de situações do dia a dia.
+2.  **Dificuldade Progressiva:** Exercícios que evoluem de lógica simples para complexa.
+3.  **Planejamento Prévio:** Construção do algoritmo (pensamento) antes da codificação (implementação).
 
-C
+### 🧠 Competências Desenvolvidas
+> *Raciocínio Lógico • Abstração • Decomposição de Problemas • Algoritmos Eficientes*
 
-Portugol (Visualg)
-
-Flowgorithm / draw.io para fluxogramas
-
-IDEs como VS Code, Dev-C++, Thonny, etc.
-
-🛠️ Metodologia
-
-As atividades são baseadas em:
-
-Problemas práticos do dia a dia
-
-Exercícios de lógica crescente em dificuldade
-
-Construção de algoritmos antes da codificação
-
-Desenvolvimento de pensamento estruturado
-
-Projetos pequenos para aplicar o conteúdo
-
-🧠 Competências Desenvolvidas
-
-Raciocínio lógico
-
-Abstração e decomposição
-
-Resolução de problemas
-
-Construção de algoritmos eficientes
-
-Base sólida para programação avançada
+---
+Estudante de Ciência da Computação, construindo uma base sólida em algoritmos e lógica de programação.
